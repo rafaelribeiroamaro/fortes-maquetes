@@ -1,0 +1,7 @@
+{
+  "name": "Planejamento de Maquetes - Orçamentos Inteligentes",
+  "description": "Sistema avançado para marcenaria de maquetes e condomínios que automatiza orçamentos a partir de arquivos CAD e especificações de projeto.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
