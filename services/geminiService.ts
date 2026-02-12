@@ -2,12 +2,17 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { BudgetResult, PricingConfig } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Usamos uma verificação segura para o TypeScript não barrar o build
+const getApiKey = () => {
+  return (process.env as any).API_KEY || "";
+};
 
 export async function analyzeProjectData(
   fileInfo: string,
   pricing: PricingConfig
 ): Promise<BudgetResult> {
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
+  
   const prompt = `
     Como especialista em marcenaria e maquetaria de condomínios, analise as seguintes informações de um projeto de planta (AutoCAD) e gere um orçamento detalhado.
     
@@ -62,7 +67,7 @@ export async function analyzeProjectData(
     },
   });
 
-  const result = JSON.parse(response.text);
+  const result = JSON.parse(response.text || '{}');
   return {
     ...result,
     laborRate: pricing.laborHourlyRate
