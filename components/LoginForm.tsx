@@ -8,7 +8,7 @@ interface Props {
 
 const VALID_USERS: (User & { password: string })[] = [
   { username: 'admin', password: 'admin123', name: 'Administrador', role: 'admin' },
-  { username: 'marcelo', password: 'maquete2024', name: 'Marcelo Silva', role: 'admin' },
+  { username: 'fortes', password: 'fortes!2026', name: 'Fortes Maquetes', role: 'admin' },
   { username: 'bruna', password: 'madeira01', name: 'Bruna Oliveira', role: 'viewer' },
   { username: 'gestor', password: 'senha789', name: 'Gestor de Produção', role: 'viewer' }
 ];
